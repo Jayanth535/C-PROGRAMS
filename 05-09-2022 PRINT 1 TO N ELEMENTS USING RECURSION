@@ -1,0 +1,15 @@
+#include <stdio.h>
+int print(int n,int m);
+int main()
+{
+    printf("The elements between n and m are :");
+    print(4,10);
+}
+int print(int n,int m)
+{
+    if(n>m)
+    return 0;
+    else
+    printf("%2d ",n);
+    print(n+1, m);
+}
