@@ -1,0 +1,23 @@
+#include <stdio.h>
+int main()
+{
+    int n,i,x[100];
+   printf("Enter the size of array:");
+   scanf("%d",&n);
+   for(i=0;i<n;i++)
+   {
+       printf("Element of %d place was :",i);
+       
+       scanf("%d",&x[i]);
+   }
+   printf("Enter the elements of array are:");
+   display(x,0,n);
+}
+int display(int x[],int start, int end)
+{
+    if(start<end)
+    printf("%2d",x[start]);
+    else
+    return 0;
+    display(x,start+1,end);
+}
