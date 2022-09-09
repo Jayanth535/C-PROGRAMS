@@ -1,0 +1,56 @@
+#include<stdio.h>
+#include<malloc.h>
+struct node
+{
+     int data;
+     struct node *link;
+}
+first,*nw;
+
+int search(int value)
+{
+     int count=1;
+     nw=&first;
+     while(nw->link!=NULL)
+     {
+          if(nw->data==value)
+               break;
+          else
+               count++;
+          nw=nw->link;
+     }
+     return count;
+}
+int main()
+{
+     int no,i,value,pos;
+     first.link=NULL;
+     nw=&first;
+     printf("Enter the number of nodes: ");
+     scanf("%d",&no);
+     printf("\n");
+     for(i=0;i<no;i++)
+     {
+          nw->link=(struct node *)malloc(sizeof(struct node));
+          printf("Enter elements in node: ");
+          scanf("%d",&nw->data);
+          nw=nw->link;
+     }
+     nw->link=NULL;
+     printf("\nElements in linked list :\n");
+     nw=&first;
+     while(nw->link!=NULL)
+     {
+          printf("%d\t",nw->data);
+          nw=nw->link;
+     }
+     printf("\n");
+     printf("\nEnter element to be searched: ");
+     scanf("%d",&value);
+     pos=search(value);
+     if(pos<=no)
+          printf("\n'%d' is found at node = %d",value,pos);
+     else
+          printf("Sorry! '%d' is not in linked list.",value);
+     return 0;
+}
